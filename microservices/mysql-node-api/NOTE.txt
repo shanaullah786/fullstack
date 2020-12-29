@@ -1,0 +1,64 @@
+install Mongodb
+
+Step 1: install home brew
+/usr/local/Cellar/mongodb-community/4.2.8: 21 files, 306.3MB, built in 6 seconds
+WKMIN9431937:~ shakhan7$ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+
+Step 2:
+brew tap mongodb/brew
+
+Step 3:
+brew install mongodb-community@4.2
+
+
+Start MonhgoDb
+
+brew services list
+brew services start mongodb
+
+=====================================
+
+Start MysqlDB
+
+/usr/local/mysql/bin/mysql -u root -p
+
+
+Design System:
+
+Carbon
+MateriaUI
+Bootstrap
+
+
+Web component based design system
+
+AI Powered theme
+
+Optional dark theme support
+Web based AR
+
+
+#####aler doners tabels;
+ALTER TABLE doners
+ADD gender char(10);
+ADD bloodgroup char(10);
+ADD recovered char(10);
+ADD drinkCount char(10);
+ADD liverDisease char(10);
+ADD kidneyDisease char(10);
+ADD lungDisease char(10);
+ADD hiBloodPressure char(10);
+ADD diabetesDisease char(10);
+ADD hasAadhar char(10);
+ADD dateOfRecovery date;
+ADD hasDischargeReport varchar(10);
+ADD creationDate timestamp NOT NULL DEFAULT current_timestamp;
+
+================================================
+ALTER TABLE doners ADD hiBloodPressure char(10);
+ALTER TABLE doners ADD diabetesDisease char(10);
+ALTER TABLE doners ADD hasAadhar char(10);
+ALTER TABLE doners ADD dateOfRecovery date;
+ALTER TABLE doners ADD hasDischargeReport varchar(10);
+ALTER TABLE doners ADD creationDate timestamp NOT NULL DEFAULT current_timestamp;

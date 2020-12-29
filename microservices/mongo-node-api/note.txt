@@ -1,0 +1,121 @@
+Start Mongodb:
+$ brew services start mongodb-community
+
+Connect mongo shell
+$ mongo
+> db
+> use <database>
+
+see statistics of
+> db.stats()
+db.createCollection("customers")
+show collections
+
+db.users.insert({
+      "_id": ObjectId("10001"),
+      "name": "Shanaulah Khan",
+      "Phone": "9911274299",
+      "isActive":"true",
+      "tagScan": "true",
+      "CheckIns": [{"CheckInsTime": "09-06-2020 12:20:20"}],
+      "Demographics":{
+          "First Name": "Shanaullah",
+          "Last Name": "Khan",
+          "street": "22 A, Indiana Apt",
+          "zip": 123456,
+          "city": "Los Angeles",
+          "state": "California"
+        },
+      "Behaviour": {
+          "isSymptomatic": "Yes",
+          "Date1": "09-06-2020",
+          "Temp":"101 F",
+          "Symptoms":["nausea", "headache","cough", "chills","Subjective Fever","Conjunctivitis", "Myalgia","Runny Nose", "Sore Throat", "Shortness of Breath", "Abdominal Pain", "Diarrhoea", "Vomiting", "Others"],
+        },
+      "Contacts": [
+        {
+          "Name": "xyz",
+          "Type": "Friends",
+          "NickName":"Shahab"
+        },
+        {
+          "Name": "abc",
+          "Type": "Brother",
+          "NickName":"Ehsan"
+        }
+      ],
+      "CreationDate": "09-06-2020"
+  }
+)
+
+
+
+cities
+0
+"new york"
+1
+"austin"
+2
+"chicago"
+country
+"USA"
+date
+2 September 2020 at 00:00:00 UTC+5:30
+dateOfSpeciment
+6 September 2020 at 00:00:00 UTC+5:30
+(timestamp)
+specimentType
+""
+userId
+"abc@abc.com"
+
+
+
+
+db.collection('users').doc(userID).collection('demographics')
+
+db.collection('users').onSnapshot(data => {
+  setUserData()
+})
+
+get data for userBehaviour
+-------------------------
+db.collection('users')
+      .doc('RVg1nCc87Yb9tUxraYae')
+      .collection('userBehaviour')
+      .onSnapshot((snapshot) =>
+        snapshot.docs.map((doc) => console.log(doc.data()))
+      );
+
+get data for demographics
+-------------------------
+db.collection('users')
+      .doc('RVg1nCc87Yb9tUxraYae')
+      .collection('demographics')
+      .onSnapshot((snapshot) =>
+        snapshot.docs.map((doc) => console.log(doc.data()))
+      );
+
+var collect = db
+      .collectionGroup('demographics')
+      .where('firstName', '==', 'Rahul');
+    collect.get().then(function (querySnapshot) {
+      querySnapshot.forEach(function (doc) {
+        console.log(doc.id, ' => ', doc.data());
+      });
+    });
+
+
+ADD Collection
+--------------
+db.collection('users')
+      .doc('RVg1nCc87Yb9tUxraYae')
+      .collection('demographics')
+      .add({
+        firstName: 'Amir',
+        lastName: 'Nakvi',
+});
+
+
+CG appStore
+Nitin Tolani

@@ -1,0 +1,102 @@
+<section class="contact section-padding">
+  <div class="container">
+    <div><strong> Register as doner</strong></div>
+    <div>Did you recovered from Covid and have not donated plasma yet? if Yes please fill your details in the form
+      <br>
+      By filling the form below your are aggreed to donate plasma to save covid patien when needed.
+    </div>
+    <br><br>
+    <div class="row">
+
+      <div class="col-lg-6 col-md-6 col-12">
+        <form id="user-form" action="doners" method="POST" class="contact-form webform" role="form">
+
+          <div class="form-group d-flex flex-column">
+            <label for="name">Enter your full name</label>
+            <input type="text" class="form-control" name="name" id="name" placeholder="Your Full Name">
+          </div>
+
+          <div class="form-group d-flex flex-column">
+            <label for="email">Your Email</label>
+            <input type="email" class="form-control" name="email" id="email" placeholder="Email">
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="mobile">Mobile number</label>
+              <input type="number" class="form-control" name="mobile" id="mobile" placeholder="Your Full Name">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="age">Age</label>
+              <input type="number" min="18" max="50" class="form-control" name="age" id="age" placeholder="Age">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="city">City you are currently in</label>
+            <input type="text" class="form-control" name="city" id="city" placeholder="ex: delhi, munbai, patna ">
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label>Gender</label>
+              <div class="form-check">
+                <input class="form-check-input" name="gender" type="radio" id="M" value="M"> <label
+                  class="form-check-label" for="M">Male</label>
+              </div>
+              <div class="form-check"><input class="form-check-input" name="gender" type="radio" id="F" value="F">
+                <label class="form-check-label" for="F">Female</label>
+              </div>
+            </div>
+
+            <div class="form-group col-md-6">
+              <label for="age">Blod Group</label>
+              <div>
+                <div class="form-check-inline">
+                  <input class="form-check-input" name="bloodgroup" type="radio" id="AP" value="A+">
+                  <label class="form-check-label" for="AP">A+</label>
+                  <input class="form-check-input" name="bloodgroup" type="radio" id="AN" value="A-">
+                  <label class="form-check-label" for="AN">A-</label>
+                  <input class="form-check-input" name="bloodgroup" type="radio" id="BP" value="B+">
+                  <label class="form-check-label" for="BP">B+</label>
+                  <input class="form-check-input" name="bloodgroup" type="radio" id="BN" value="B-">
+                  <label class="form-check-label" for="BN">B-</label>
+                </div>
+                <div class="form-check-inline">
+                  <input class="form-check-input" name="bloodgroup" type="radio" id="O+" value="O+"><label
+                    class="form-check-label" for="A+">O+</label>
+                  <input class="form-check-input" name="bloodgroup" type="radio" id="O-" value="O-"><label
+                    class="form-check-label" for="A+">O-</label>
+                  <input class="form-check-input" name="bloodgroup" type="radio" id="AB+" value="AB+"><label
+                    class="form-check-label" for="A+">AB+</label>
+                  <input class="form-check-input" name="bloodgroup" type="radio" id="AB-" value="AB-"><label
+                    class="form-check-label" for="A+">AB-</label>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="form-row">
+            <label for="hospital">Name of the hospital you are admitted</label>
+            <div class="form-group col-md-12">
+              <input type="text" class="form-control" name="hospital" id="hospital" placeholder="Ex: 0, 10 etc..">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <label for="cf-name">Do you have case sheet from doctor?</label>
+            <div class="form-group col-md-12">
+              <div class="form-check-inline">
+                <input class="form-check-input" type="radio" name="caseSheet" id="caseSheet-yes" value="Yes"> <label
+                  class="form-check-label" for="caseSheet-yes">Yes</label>
+                <input class="form-check-input" type="radio" name="caseSheet" id="caseSheet-no" value="No"><label
+                  class="form-check-label" for="caseSheet-no">No</label>
+              </div>
+            </div>
+          </div>
+
+          <button type="submit" class="form-control" id="submit-button" name="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
