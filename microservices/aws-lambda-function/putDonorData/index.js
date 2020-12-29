@@ -2,46 +2,69 @@
 const AWS = require('aws-sdk');
 
 AWS.config.apiVersions = {
-  dynamodb: '2012-10-08',
-  ec2: '2013-02-01'
+  dynamodb: '2012-10-08'
 };
 
 AWS.config.update({ region: "ap-south-1" });
 
 exports.handler = async (event, context) => {
   const db = new AWS.DynamoDB.DocumentClient({ region: "ap-south-1" });
-  cont responseBody = "";
-  const statusCode = 0;
-  const { id, name, email, mobile } = JSON.parse(event.body);
+  var id = String(Math.round(Math.random() * 10000000));
+  let statusCode = 0;
+  const { type } = event;
+  let items = '';
+  let TableName='';
 
-  const params = {
-    TableName: "donor",
-    Item: {
+  if(type==='donor'){
+    items = {
       id: id,
-      name: name,
-      email: email,
-      mobile: mobile
-    }
+      name: event.name,
+      email: event.email,
+      mobile: event.mobile,
+      age: event.age,
+      city: event.city,
+      gender: event.gender,
+      bloodgroup: event.bloodgroup,
+      disease: event.disease,
+      drinkCount: event.drinkCount,
+      aadhar: event.aadhar,
+      discharge: event.discharge
+    };
+    TableName= "donor";
+  } else {
+    items = {
+      id: id,
+      name: event.name,
+      email: event.email,
+      mobile: event.mobile,
+      age: event.age,
+      city: event.city,
+      gender: event.gender,
+      bloodgroup: event.bloodgroup,
+      hospital: event.hospital,
+      caseSheet: event.caseSheet
+    };
+    TableName="patient";
   }
 
+  const params = {
+    TableName: TableName,
+    Item: items
+  };
+
   try {
-    const data = await db.put(params).promise();
-    responseBody = JSON.stringify(data.Item);
+    await db.put(params).promise();
     statusCode = 200;
   } catch (error) {
-    responseBody = 'unable to get data';
     statusCode = 403;
   }
 
+
   const response = {
     statusCode: statusCode,
-    headers: {
-      "Content-Type": "application/json",
-      "Access-Control-Allow-Origin": "*"
-    },
-    body: responseBody
-  }
+    body: {'ref':id}
+  };
 
   return response;
 
-}
+};
