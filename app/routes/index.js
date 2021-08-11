@@ -10,11 +10,11 @@ router.get('/donor', function (req, res, next) {
   res.render('donor', { title: 'Register to donate', description: 'helping covid patients' });
 });
 router.get('/patient', function (req, res, next) {
-  res.render('patient', { title: 'Register to donate', description: 'helping covid patients' });
+  res.render('patient', { title: 'Register to get plasma', description: 'helping covid patients' });
 });
 
 router.get('/success', function (req, res, next) {
-  res.render('success', { title: 'Register to donate', description: 'helping covid patients', ref: req.query.ref });
+  res.render('success', { title: 'Registration successful', description: 'helping covid patients', ref: req.query.ref });
 });
 
 module.exports = router;

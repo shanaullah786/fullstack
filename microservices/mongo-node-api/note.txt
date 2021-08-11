@@ -50,28 +50,10 @@ db.users.insert({
 
 
 
-cities
-0
-"new york"
-1
-"austin"
-2
-"chicago"
-country
-"USA"
-date
-2 September 2020 at 00:00:00 UTC+5:30
-dateOfSpeciment
-6 September 2020 at 00:00:00 UTC+5:30
-(timestamp)
-specimentType
-""
-userId
-"abc@abc.com"
 
 
 
-
+============== Firebase =========
 db.collection('users').doc(userID).collection('demographics')
 
 db.collection('users').onSnapshot(data => {
